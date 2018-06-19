@@ -1,7 +1,5 @@
 # 2016-Presidential-Election-Prediction-Model
 
-#2016 Presidential Election Model
-
 My election model builds off of the polling data given to us for this assignment by adding new data and creating features from this new information. My predection program uses linear regression that creates the "line of best fit" that best matches my training data, in hopes that it will provide an accurate prediction of this year's election. Linear regression works by taking a set of input features X and an output Y and creates a line that best matches the input/outputs. In this model, the input X are various features that I think influenced the 2012 election while the Y output is the result from the 2012 election. Once this model is created, we can then use data from today's politcal climate as an input to our model to try to predict the outcome of this election. 
 
 I decided to build my model on top of the simpler one we were given. Just like the model we were provided, my model uses the most recent poll data for each state to create one feature of the model. As opposed to taking the average/median of all the polls for each state, using only the most recent polls makes sense to me because this election has been filled with various scandals that have led to wildly changing public opinion/polls. Because public opinion is so dynamic week to week, I think only the most recent polls can give an accurate representation of public opinion on the major candidates. 
