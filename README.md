@@ -1,77 +1,17 @@
+# 2016-Presidential-Election-Prediction-Model
 
-Regression
-===============
+#2016 Presidential Election Model
 
-Overview
----------------
+My election model builds off of the polling data given to us for this assignment by adding new data and creating features from this new information. My predection program uses linear regression that creates the "line of best fit" that best matches my training data, in hopes that it will provide an accurate prediction of this year's election. Linear regression works by taking a set of input features X and an output Y and creates a line that best matches the input/outputs. In this model, the input X are various features that I think influenced the 2012 election while the Y output is the result from the 2012 election. Once this model is created, we can then use data from today's politcal climate as an input to our model to try to predict the outcome of this election. 
 
-One of the most visible uses of regression is to predict election
-outcomes.  They take poll data from many different sources, combine
-them together, and create a prediction of the final outcome of the
-election.  While this assignment won't match the complexity of
-[538](http://fivethirtyeight.com/) or
-[Princeton Election Consortium](http://election.princeton.edu/), we'll
-be doing the same thing and hopefully also getting a better
-understanding of how to create useful features for regression
-problems.
+I decided to build my model on top of the simpler one we were given. Just like the model we were provided, my model uses the most recent poll data for each state to create one feature of the model. As opposed to taking the average/median of all the polls for each state, using only the most recent polls makes sense to me because this election has been filled with various scandals that have led to wildly changing public opinion/polls. Because public opinion is so dynamic week to week, I think only the most recent polls can give an accurate representation of public opinion on the major candidates. 
 
-Predict the Republican Share (5 points)
-----------------------------
+The second feature I added to my model was median household income for each state. I used data from 2012 to train my model and data from 2015 (most recent data I could find) to create the prediction of this years election. I think median income will make a good feature for two reasons. First, I think in general the wealthier a person is, the more likely they are to be a republican. Therefore I believe states with a higher median household income should be more likely to vote republican while states with a lower median household income should vote democrat. Second, I think the change in median income over time will play a part as well. If a state's median income has risen over the past 4 years I would expect voters to lean toward the incumbent party (Democrats) because they are happy with the status quo. Likewise states that have had a drop in median income may believe a democratic administration has failed to improve their economic situation. Therefore they will be more likely to vote for a republican in hopes that the status quo will change.
 
-A small part of your grade is based on how well you can predict the
-2016 election.  You'll be scored based on the mean squared error between the
-Republican share of the vote in each state.  
+The third feature I added to my model was the religious populations for each state. I added data that tells the percentage of each states population that identifies as religious. I used a data set from 2012 to train the model and a data set from 2016 to create my prediction for our current election. I believe religious demographics make a good feature for the model because of historical precedent and party policy. Traditionally religious voters will choose the republican candidate over the democratic one, and I expect this election to be no different. States with a higher religious population will cast more votes for the "traditional" religious candidates, the republicans.
 
-It is possible to get more than the maximum number of points by doing
-particularly well in your predictions.  To get points on this part of
-the assignment, you should do better than the baseline predictions
-offered in the initial template (just using last poll and state ID).
+The last feature I decided to add to my model was the median age for each state. I trained my model with data collected in 2010 while I used census data from 2015 to create my prediction for this election. I believe age makes a good feature of the model because age can be a good baseline indicator for which political party a voter supports. Generally speaking, I think younger voters are more likely to hold progressive ideals, and are therefore more likely to support the democratic party. I believe as voters get older, they become more jaded and less idealistic, making them more likely to support the republicans. Therefore a state with a lower median age will be more likely to vote democrat while states with a higher median age will vote for a republican.
 
-Construct a Model (20 points)
--------------------------------
+Training the model was only a matter of finding the appropriate data online and formatting it to work with the data I already had. I created multiple csv files that contain one column of state abbreviations and another column with the relevant data (i.e. age, income, religion). I joined this data with the poll data we were given by pairing the information I added with the appropriate state abbreviations. The data sets I used to train the model were all collected near the 2012 presidential election. The data I used to "test" the model and create my prediction is from 2015-2016.
 
-This is an open-ended assignment.  While there is a right answer,
-nobody knows what it is yet (and getting the right answer is an
-unimportant part of the assignment).  What is more important is how
-you go about building a model to get a good prediction.
-
-There are several components to how you choose a model: creating
-features, changing your model training (e.g., online vs. batch), and
-selecting model parameters (e.g., regularization).  You should feel
-free to explore any of these.
-
-You may use additional *data* to create useful features.  We've
-provided a script to get data from the HuffPo polling api, but you
-should not feel at all limited to using only these data.  You may not
-use the output of other models as data.  If there's any doubt, ask on
-Piazza.
-
-Your code should run on the data that you upload in the form that you
-uploaded it.  I.e., if you upload a zip file called foo.zip, your
-program should create your predictions when placed in the same
-directory as foo.zip.
-
-Writeup (15 points)
------------------------
-
-For whatever you chose as your final model, explain how you chose
-your:
-* Training
-* Features
-* Data
-* Model
-
-Because so much of this assignment is based on these decisions, make
-sure you spend more time than usual on the writeup to ensure it is
-written clearly and does a good job of justifying why you chose the
-parameters you did.
-
-Do not use more than 1000 words (as reported by the wc command) in
-your writeup (but don't feel obligated to reach this limit).
-
-Submitting Your Code, Data, and Predictions
------------------------
-
-You'll need to submit your assignment (predict.py, data, pred.txt,
-model.txt, writeup.txt) on Moodle as an upload.  Do not change the
-format of the predictions, as this will be automatically scored.
+I intended to add many more features to my model such as population demographics(race, particular relgions, occupation) and also poll data on popular issues (Gun control, immigration, corruption). Unfortunately I could not compile enough data on these topics to use them in my model. Realistically I think this information would have made for great features because I think this election will be decided by voters stance's on the unique issues of this election and not on the traditional voting blocks that have dictated the results of elections prior.  
